@@ -1,12 +1,12 @@
 {
     "name": "msacommon/msacommon",
     "description": ":description",
-    "license": "public",
+    "license": "MIT License",
     "authors": [
         {
             "name": "Khurram",
             "email": "mkhurram900@gmail.com",
-            "homepage": "author homepage"
+            "homepage": "https://github.com/khurram900"
         }
     ],
     "homepage": "https://github.com/msacommon/msacommon",
