@@ -21,6 +21,9 @@
         "sempro/phpunit-pretty-print": "^1.0"
     },
     "autoload": {
+        "files": [
+            "src/helpers.php"
+        ],
         "psr-4": {
             "MSACommon\\MSACommon\\": "src/"
         }

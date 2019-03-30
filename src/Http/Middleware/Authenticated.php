@@ -17,6 +17,7 @@ class Authenticated
      */
     public function handle($request, Closure $next)
     {
+        testasdsad();
         return $next($request);
     }
 
