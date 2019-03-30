@@ -17,7 +17,6 @@ class Authenticated
      */
     public function handle($request, Closure $next)
     {
-        dd("asdasdasdsadsadasasd");
         return $next($request);
     }
 
