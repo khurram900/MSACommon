@@ -1,0 +1,24 @@
+<?php
+
+namespace MSACommon\MSACommon\Http\Middleware;
+
+
+use Closure;
+
+class Authenticated
+{
+
+    /**
+     * Handle an incoming request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Closure  $next
+     * @return mixed
+     */
+    public function handle($request, Closure $next)
+    {
+        dd("asdasdasdsadsadasasd");
+        return $next($request);
+    }
+
+}
