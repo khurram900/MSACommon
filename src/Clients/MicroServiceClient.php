@@ -2,6 +2,9 @@
 namespace MSACommon\MSACommon\Clients;
 
 use GuzzleHttp\Client as Client;
+use Illuminate\Support\Facades\Request;
+use MSACommon\MSACommon\Common\ApiResponseCodesBook;
+use MSACommon\MSACommon\Exceptions\APIException;
 
 class MicroServiceClient
 {
@@ -18,9 +21,11 @@ class MicroServiceClient
 
     public function request($verb,$uri,$headers = []){
 
-        if(session()->has('token')) {
-            $headers['headers']['token'] = session()->get('token');
-        }
+        $token = '';
+        if(Request::header('token')) $token = Request::header('token');
+        if(session()->has('token')) $token = session()->get('token');
+
+        if(!empty($token))$headers['headers']['token'] = $token;
 
         $sentRequest = $this->client->request(
             $verb,
@@ -31,8 +36,13 @@ class MicroServiceClient
         $response = json_decode($sentRequest->getBody()->getContents(),true);
 
         if($response['outComeCode'] === 3){
-            session()->remove('token');
-            return redirect()->route('home');
+            if(session()->isStarted()){
+                session()->remove('token');
+                return redirect()->route('home');
+            }
+
+            throw new APIException(ApiResponseCodesBook::NOT_LOGGED_IN);
+
         }elseif($response['outComeCode'] !== 0){
             $error = \Illuminate\Validation\ValidationException::withMessages($response['errors']?:[]);
             throw $error;
