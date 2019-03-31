@@ -25,5 +25,11 @@ class ApiResponseCodesBook
         'outCome' => 'NOT_LOGGED_IN'
     ];
 
+    const ADMIN_ACCESS_ONLY = [
+        'outcomeCode' => '4',
+        'outCome' => 'ADMIN_ACCESS_ONLY'
+    ];
+
+
 
 }
