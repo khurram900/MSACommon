@@ -34,6 +34,10 @@ class Authentication
 
         $user = $this->authUserService->getUser();
 
+        $request->request->add([
+            'user' => $user
+        ]);
+
         return $next($request);
     }
 }

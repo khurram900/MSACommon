@@ -23,3 +23,11 @@ function msacommon_convertErrorBagToCompaitableArray(array &$preparedErrors,arra
         msacommon_makeErrorArray($preparedErrors,$key,$errors[0]);
     }
 }
+
+
+function msacommon_recur_ksort(&$array) {
+    foreach ($array as &$value) {
+        if (is_array($value)) recur_ksort($value);
+    }
+    return ksort($array);
+}
