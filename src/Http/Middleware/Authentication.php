@@ -28,7 +28,7 @@ class Authentication
      */
     public function handle($request, Closure $next)
     {
-        if (!session()->has('token')) {
+        if (!request()->header('token')) {
             throw new APIException(ApiResponseCodesBook::NOT_LOGGED_IN);
         }
 
