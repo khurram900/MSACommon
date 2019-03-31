@@ -15,4 +15,15 @@ class ApiResponseCodesBook
         'outCome' => 'FORM_VALIDATION_ERROR'
     ];
 
+    const RECORD_NOT_FOUND = [
+        'outcomeCode' => '2',
+        'outCome' => 'RECORD_NOT_FOUND'
+    ];
+
+    const NOT_LOGGED_IN = [
+        'outcomeCode' => '3',
+        'outCome' => 'NOT_LOGGED_IN'
+    ];
+
+
 }
