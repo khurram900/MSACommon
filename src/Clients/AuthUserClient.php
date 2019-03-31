@@ -8,6 +8,9 @@
 
 namespace MSACommon\MSACommon\Clients;
 
+use Config;
+
+
 
 class AuthUserClient extends MicroServiceClient
 {
